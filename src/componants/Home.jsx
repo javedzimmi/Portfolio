@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaPaintBrush, FaCode, FaLaptop } from "react-icons/fa";
 import pimage from "../assets/javed.jpg";
 
-const roles = ["Frontend Developer", "React & Tailwind Enthusiast", "JavaScript Lover"];
+const roles = ["MERN Stack Developer",
+  "Frontend Specialist with React & Tailwind",
+  "Passionate JavaScript Developer"];
 
 export default function Home() {
   const [index, setIndex] = React.useState(0);
@@ -15,7 +17,7 @@ export default function Home() {
     if (index === roles.length) return;
 
     if (subIndex === roles[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1000);
+      setTimeout(() => setReverse(true), 1000/3);
       return;
     }
 
@@ -60,7 +62,7 @@ export default function Home() {
             ></span>
           </p>
           <p className="text-gray-400 max-w-xl mx-auto md:mx-0">
-            Passionate Frontend Developer focused on building elegant, scalable UIs with React, Tailwind CSS, and modern JavaScript.
+            Passionate Full Stack Developer skilled in building elegant, scalable web applications using React, Node.js, Express, MongoDB, and Tailwind CSS. Dedicated to delivering seamless user experiences and robust backend solutions with modern JavaScript technologies.
           </p>
         </motion.div>
         <motion.div
@@ -179,7 +181,7 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-10 px-6 sm:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm">&copy; {new Date().getFullYear()} Javed Alam. All rights reserved.</p>
-         
+
         </div>
       </footer>
     </>
