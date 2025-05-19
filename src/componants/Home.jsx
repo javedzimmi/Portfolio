@@ -79,13 +79,13 @@ export default function Home() {
 
       {/* Sticky Social Icons */}
       <div className="bg-gray-900 py-4 px-6 flex justify-center gap-6 text-white text-xl sticky top-0 z-50 shadow-md">
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition">
+        <a href="https://www.linkedin.com/in/javed-alam-62251b25a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer" className="hover:text-blue-400 transition">
           <FaLinkedin />
         </a>
-        <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-gray-300 transition">
+        <a href="https://github.com/javedzimmi" target="_blank" rel="noreferrer" className="hover:text-gray-300 transition">
           <FaGithub />
         </a>
-        <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-pink-400 transition">
+        <a href="https://www.instagram.com/javed3_?igsh=ODQ2czFwYWdldmdh" target="_blank" rel="noreferrer" className="hover:text-pink-400 transition">
           <FaInstagram />
         </a>
       </div>
@@ -179,17 +179,7 @@ export default function Home() {
       <footer className="bg-gray-900 text-white py-10 px-6 sm:px-12 lg:px-24">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm">&copy; {new Date().getFullYear()} Javed Alam. All rights reserved.</p>
-          <div className="flex gap-6 text-xl">
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="hover:text-blue-400">
-              <FaLinkedin />
-            </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-gray-300">
-              <FaGithub />
-            </a>
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noreferrer" className="hover:text-pink-400">
-              <FaInstagram />
-            </a>
-          </div>
+         
         </div>
       </footer>
     </>
