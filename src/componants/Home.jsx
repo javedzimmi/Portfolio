@@ -2,22 +2,60 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaInstagram, FaPaintBrush, FaCode, FaLaptop } from "react-icons/fa";
 import pimage from "../assets/javed.jpg";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios"
+
 
 const roles = ["MERN Stack Developer",
   "Frontend Specialist with React & Tailwind",
   "Passionate JavaScript Developer"];
 
+
+
+
+
 export default function Home() {
+
+
   const [index, setIndex] = React.useState(0);
   const [subIndex, setSubIndex] = React.useState(0);
   const [reverse, setReverse] = React.useState(false);
   const [blink, setBlink] = React.useState(true);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [about, setAbout] = useState('')
+
+  const [data, setData] = useState([])
+ const submit = async (e) => {
+  e.preventDefault();
+  const newData = { name, email, subject, about };
+
+  try {
+    const res = await axios.post("http://localhost:8001/api/user", newData);
+    setData(prev => [...prev, res.data]); // assuming backend returns the saved data
+    setName('');
+    setEmail('');
+    setSubject('');
+    setAbout('');
+  } catch (err) {
+    console.error("Error submitting form:", err);
+  }
+};
+
+
+ 
+
 
   React.useEffect(() => {
+
+
+
     if (index === roles.length) return;
 
     if (subIndex === roles[index].length + 1 && !reverse) {
-      setTimeout(() => setReverse(true), 1000/3);
+      setTimeout(() => setReverse(true), 1000 / 3);
       return;
     }
 
@@ -166,12 +204,12 @@ export default function Home() {
           transition={{ duration: 1 }}
         >
           <div className="flex flex-col sm:flex-row gap-4">
-            <input type="text" placeholder="Name" className="flex-1 p-3 rounded bg-gray-800 text-white" />
-            <input type="email" placeholder="Email" className="flex-1 p-3 rounded bg-gray-800 text-white" />
+            <input type="text" placeholder="Name" className="flex-1 p-3 rounded bg-gray-800 text-white" onChange={(e) => setName(e.target.value)} value={name} />
+            <input type="email" placeholder="Email" className="flex-1 p-3 rounded bg-gray-800 text-white" onChange={(e) => setEmail(e.target.value)} value={email} />
           </div>
-          <input type="text" placeholder="Subject" className="w-full p-3 rounded bg-gray-800 text-white" />
-          <textarea placeholder="Message" rows="5" className="w-full p-3 rounded bg-gray-800 text-white"></textarea>
-          <button type="submit" className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full font-semibold text-white transition">
+          <input type="text" placeholder="Subject" className="w-full p-3 rounded bg-gray-800 text-white" onChange={(e) => setSubject(e.target.value)} value={subject} />
+          <textarea placeholder="Message" rows="5" className="w-full p-3 rounded bg-gray-800 text-white" onChange={(e) => setAbout(e.target.value)} value={about}></textarea>
+          <button type="submit" onClick={submit} className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-full font-semibold text-white transition">
             Send Message
           </button>
         </motion.form>
